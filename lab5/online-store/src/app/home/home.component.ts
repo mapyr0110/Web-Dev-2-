@@ -36,7 +36,18 @@ export class HomeComponent {
   }
 
   deleteProduct(id: number): void {
-  this.products = this.products.filter(p => p.id !== id);
+  this.delete(id);
+
+  if (this.selectedCategory) {
+    this.products = this.productService.getByCategory(this.selectedCategory.id);
+  } else {
+    this.products = this.productService.getAll();
   }
-  
+}
+
+delete(id: number): void {
+  this.products = this.products.filter(p => p.id !== id);
+}
+
+
 }

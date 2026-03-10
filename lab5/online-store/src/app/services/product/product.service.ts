@@ -156,8 +156,13 @@ export class ProductService {
     ]
   }
 
+
+
+
   getByCategory(catId: number): Product[]{
     return this.getAll().filter(p=>p.catId===catId);
   }
+
+  
 
 }
